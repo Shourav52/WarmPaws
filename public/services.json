@@ -1,0 +1,172 @@
+[
+    {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog
+    comfortable in the cold.",
+    "image": "https://i.ibb.co.com/cSNvqVy1/sjnis.jpg",
+    "category": "Clothing"
+    },
+    {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and
+    winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/HDkYnDt3/download-15.jpg",
+    "category": "Grooming"
+    } ,  
+  {
+    "serviceId": 3,
+    "serviceName": "Thermal Dog Sweater Knitting",
+    "providerName": "WarmPaws Crafts",
+    "providerEmail": "contact@warmpaws.com",
+    "price": 20,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Hand-knitted thermal sweaters made perfectly to your dog’s size.",
+    "image": "https://i.ibb.co.com/PG5Dmskc/images-2.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Fur Conditioning",
+    "providerName": "FurFresh Saloon",
+    "providerEmail": "support@furfresh.com",
+    "price": 28,
+    "rating": 4.6,
+    "slotsAvailable": 2,
+    "description": "Deep moisturizing treatment to keep fur soft and protected in cold weather.",
+    "image": "https://i.ibb.co.com/9kXx1wVd/download-16.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Snow-Proof Dog Boot Fitting",
+    "providerName": "PawFit Center",
+    "providerEmail": "info@pawfit.com",
+    "price": 18,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Custom boot fitting to protect your dog’s paws from snow and ice.",
+    "image": "https://i.ibb.co.com/84MsFpMR/download-17.jpg",
+    "category": "Accessories"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Wellness Check-up",
+    "providerName": "HealthyPets Clinic",
+    "providerEmail": "care@healthypets.com",
+    "price": 45,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Full seasonal check-up to ensure your dog is winter-ready.",
+    "image": "https://i.ibb.co.com/p62jwwM7/download-18.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Warm Bedding Setup",
+    "providerName": "CozyDen Pet Home",
+    "providerEmail": "hello@cozyden.com",
+    "price": 22,
+    "rating": 4.6,
+    "slotsAvailable": 4,
+    "description": "Installation of heated bedding and soft blankets for winter comfort.",
+    "image": "https://i.ibb.co.com/WNVnn72b/download-19.jpg",
+    "category": "Home Care"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Dog Jacket Custom Tailoring",
+    "providerName": "FitTailor Pets",
+    "providerEmail": "admin@fittailor.com",
+    "price": 32,
+    "rating": 4.8,
+    "slotsAvailable": 2,
+    "description": "Made-to-measure winter jackets with premium warm fabric.",
+    "image": "https://i.ibb.co.com/PGrtGLvV/download-20.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Anti-Slip Winter Paw Pad",
+    "providerName": "SnowSafe Pets",
+    "providerEmail": "service@snowspets.com",
+    "price": 15,
+    "rating": 4.5,
+    "slotsAvailable": 8,
+    "description": "Anti-slip medicinal paw pad application for icy roads.",
+    "image": "https://i.ibb.co.com/NgY93cx2/download-21.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Winter Diet Consultation",
+    "providerName": "NutriPet Experts",
+    "providerEmail": "nutrition@nutripet.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Customized winter diet plan to maintain warmth and energy.",
+    "image": "https://i.ibb.co.com/SwYs9Lmd/download-22.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 11,
+    "serviceName": "Holiday Photo Shoot With Winter Theme",
+    "providerName": "PetPose Studio",
+    "providerEmail": "photos@petpose.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Professional winter-themed photoshoot with props and outfits.",
+    "image": "https://i.ibb.co.com/sdKs2HmV/images-3.jpg",
+    "category": "Photography"
+  },
+  {
+    "serviceId": 12,
+    "serviceName": "Winter Coat Cleaning & Refresh",
+    "providerName": "SparkPet Laundry",
+    "providerEmail": "support@sparkpet.com",
+    "price": 12,
+    "rating": 4.4,
+    "slotsAvailable": 7,
+    "description": "Deep cleaning and refresh service for dog coats and sweaters.",
+    "image": "https://i.ibb.co.com/PvXTRCkv/download-23.jpg",
+    "category": "Cleaning"
+  },
+  {
+    "serviceId": 13,
+    "serviceName": "Dog Sauna Warm-Up Session",
+    "providerName": "RelaxPaws Spa",
+    "providerEmail": "spa@relaxpaws.com",
+    "price": 38,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Mild warm sauna session to relax muscles and improve circulation in cold weather.",
+    "image": "https://i.ibb.co.com/hxx43qCm/download-24.jpg",
+    "category": "Spa"
+  },
+  {
+    "serviceId": 14,
+    "serviceName": "Arctic-Grade Coat Rental",
+    "providerName": "PetGear Rentals",
+    "providerEmail": "rent@petgear.com",
+    "price": 10,
+    "rating": 4.5,
+    "slotsAvailable": 10,
+    "description": "Short-term rental of premium cold-resistant dog jackets.",
+    "image": "https://i.ibb.co.com/ymw9YqBx/download-25.jpg",
+    "category": "Clothing"
+  }
+]
