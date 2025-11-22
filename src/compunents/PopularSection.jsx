@@ -20,7 +20,7 @@ const PopularSection = () => {
        <MyContainer>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10 p-10 lg:p-0'>
           {
-            services.map(services =>
+            services.slice(0,6).map(services =>
               <div className="card bg-base-100 shadow-sm w-full lg:w-[360px] bg-blue-300">
             <figure>
                 <img className='w-full h-[300px] object-cover'
