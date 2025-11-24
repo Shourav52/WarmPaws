@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import MyContainer from './MyContainer'
 import logo from '../assets/logo.jpeg'
 import { Link, NavLink } from 'react-router'
 import MyLink from './MyLink'
+import { AuthContext } from '../Provider/AuthProvider'
+import { signOut } from 'firebase/auth'
+import auth from '../firebase/firebase.config'
 const Navbar = () => {
+    const {user} = useContext(AuthContext)
+
+     const handleSignOut =()=>{
+        signOut(auth)
+     }
+
   return (
     <div className='bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 border-b' >
         <MyContainer className="flex items-center justify-between">
@@ -22,10 +31,17 @@ const Navbar = () => {
                 </li>
 
             </ul>
-            <button className='bg-blue-500 text-white px-4 py-2 rounded-md font-semibold'>
-                <Link to={"/login"}>Login</Link>
+            {
+                user &&  <div className='bg-blue-500 text-white px-4 py-2 rounded-md font-semibold'>
+                <button className='cursor-pointer' onClick={handleSignOut}  >Logout</button>
+            </div>
+            }
+            {
+                 !user &&  <div className='bg-blue-500 text-white px-4 py-2 rounded-md font-semibold'>
+                 <Link to={"/login"}>Login</Link>
+            </div>
+            }
 
-            </button>
 
         </MyContainer>
        

@@ -1,85 +1,71 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import { FaEye } from "react-icons/fa";
 import {IoEyeOff} from "react-icons/io5";
 import MyContainer from '../compunents/MyContainer'
 import googleimg from '../assets/images.png'
 import {Link} from 'react-router'
-import { auth } from '../firebase/firebase.config'
-import { getAuth,sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-
-const googleProvider = new GoogleAuthProvider();
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import auth from '../firebase/firebase.config';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
-
-     const [user, setuser] = useState(null);
-     const [show, setshow] = useState(false);
-     const emailRef = useRef(null);
-    const [email, setEmail] = useState("")
-
+   
+     const {setUser,user} = useContext(AuthContext)
+     
     
      
-      const handleLogin = (e) => {
+      const handleSubmit = (e)=>{
        e.preventDefault();
-       const email = e.target.email?.value;
-       const password = e.target.password?.value;
-       console.log('signup function entered',{email, password});
-       console.log(password.length);
-   
-       const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:'",.<>/?\\|]).{6,}$/;
-       if(!regExp.test(password)){
-         toast.error("Password must include at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 6 characters long.");
-         return;
-       }
-   
-   
-       signInWithEmailAndPassword(auth, email, password).then((res) =>{
-         console.log(res);
-         setuser(res.user);
-         toast.success("Login successfull");
+         const email = e.target.email.value;
+         const pass = e.target.password.value;
+       signInWithEmailAndPassword(auth, email, pass)
+       .then((userCredential)=>{
+        const user = userCredential.user;
+        setUser(user)
+
        })
-       .catch((e) =>{
-         toast.error(e.message);
-       });
-      };
-       const handleGoogleSignin =()=>{
+       .catch((error)=>{
+        console.log(error);
         
-        signInWithPopup(auth, googleProvider)
-         .then((res)=>{
-          setuser(res.user);
-          toast.success('Google Signin succesfull')
-         })
-         .catch((e)=>{
-          toast.error(e.message);
-         })
-       };
-      const handleSignout = (e)=> {
-         signOut(auth)
-         .then(()=>{
-          toast.success('Signout succesfull')
-          setuser(null);
-         })
-         .catch((e)=>{
-          toast.error(e.message);
-         })
+       });
+  //      const handleGoogleSignin =()=>{
+        
+  //       signInWithPopup(auth, googleProvider)
+  //        .then((res)=>{
+  //         setuser(res.user);
+  //         toast.success('Google Signin succesfull')
+  //        })
+  //        .catch((e)=>{
+  //         toast.error(e.message);
+  //        })
+  //      };
+  //     const handleSignout = (e)=> {
+  //        signOut(auth)
+  //        .then(()=>{
+  //         toast.success('Signout succesfull')
+  //         setuser(null);
+  //        })
+  //        .catch((e)=>{
+  //         toast.error(e.message);
+  //        })
+  //     };
+
+  //     const handleForgetPassword = (e) =>{
+  //       console.log();
+  //       const email = emailRef.current.value;
+  //       sendPasswordResetEmail(auth, email)
+  // .then(() => {
+  //   toast.success("Reset mail sent!");
+  // })
+  // .catch((e) => {
+  //   console.log("RESET ERROR:", e);
+  //   toast.error(e.message);
+  // });
+
       };
 
-      const handleForgetPassword = (e) =>{
-        console.log();
-        const email = emailRef.current.value;
-        sendPasswordResetEmail(auth, email)
-  .then(() => {
-    toast.success("Reset mail sent!");
-  })
-  .catch((e) => {
-    console.log("RESET ERROR:", e);
-    toast.error(e.message);
-  });
-
-      };
-
-      // console.log(email);
+      console.log(user);
   return (
     <div className="min-h-screen flex items-center justify-center ">
         <MyContainer className={"flex justify-center items-center gap-20"}>
@@ -88,38 +74,27 @@ const Login = () => {
             <p className='text-gray-300'>Type your Email and Password here... </p>
         </div>
         <div className="card bg-gradient-to-r p-10 from-blue-500 to-purple-500 w-auto h-auto text-white font-semibold shadow-sm ">
-           
-        {user ? (
-          <div className='text-center space-y-3'>
-            <img className='h-20 w-20 rounded-full mx-auto' src={user?.photoURL || "https://via.placeholder.com/88"} alt="" />
-           
-          <h2 className='text-xl font-semibold'>{user?.displayName}</h2>
-          <p className='text-white/70'>{user?.email}</p>
-            <button onClick={handleSignout}  className='btn '>Signout</button>
-          </div>
-        ) :(
-          <form onSubmit={handleLogin} 
+          <form onSubmit={handleSubmit}
             className='flex flex-col gap-1' action="">
                <h1 className='text-center text-2xl mb-4'>Login</h1>
              <div>
                <label htmlFor="">Email</label>
               <input 
               name='email'
-              ref={emailRef}
               // value={email}
               // onChange={(e) => setEmail(e.target.value)}
                className='border-white border rounded-[8px] p-2 w-full'  type="email" placeholder='Enter Your Email' />
              </div>
              <div className='relative'>
                 <label htmlFor="">Password</label>
-                <input name='password' className='border-white border  rounded-[8px] p-2 w-full'  type={show ? "text" : "password"} placeholder='Enter Password' />
-                <span onClick={()=> setshow(!show)}
+                <input name='password' className='border-white border  rounded-[8px] p-2 w-full'  type= "password" placeholder='Enter Password' />
+                <span
                 className='absolute right-[8px] top-[36px] cursor-pointer z-50'>
-                {show ? <FaEye /> : <IoEyeOff />}
+
                 </span>
               </div>
                <div className='text-center cursor-pointer'>
-              <button onClick={handleForgetPassword}
+              <button 
               type='button'
               className='text-sm cursor-pointer hover:underline'>Forget Password?
               </button>
@@ -134,7 +109,6 @@ const Login = () => {
               <div className='h-px w-16 bg-gray-400'></div>
            </div>
            <button type='submit'
-            onClick={handleGoogleSignin}
              className='flex  bg-white text-black justify-center btn'>
               <img className='w-5' src={googleimg} alt="" />
               Continue With Google
@@ -144,7 +118,7 @@ const Login = () => {
             </p>
 
             </form>
-        )}
+        
          
 
         </div>
