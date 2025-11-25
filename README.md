@@ -1,3 +1,15 @@
+Project Name : WarmPaws
+
+Purpose : CozyPet is a web application designed to bring warmth and happiness to pet lovers. Users can explore tips for caring for pets, discover cozy pet accessories, and connect with a community of fellow animal enthusiasts. The goal is to make pets feel loved and cared for while providing useful resources to their owners.
+
+
+live link : https://roaring-starburst-fbb08e.netlify.app/
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
