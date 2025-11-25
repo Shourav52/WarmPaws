@@ -7,6 +7,8 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import googleimg from '../assets/images.png'
+import { toast } from "react-toastify";
+
 
 
 const Signup = () => {
@@ -22,13 +24,13 @@ const Signup = () => {
          const uppercase = /[A-Z]/;
          const lowercase = /[a-z]/;
         if(pass.length < 6 ){
-          return alert('less then 6 character')
+          return toast.error(' Password must be at least 6 characters!');
         }
         if(!uppercase.test(pass)){
-          return alert("need a Uppercase")
+          return toast.error("Password must contain at least 1 Uppercase letter!");
         }
         if(!lowercase.test(pass)){
-          return alert("need a lowercase")
+          return toast.error("Password must contain at least 1 Lowercase letter!");
         }
 
          signupWithEmailAndPassword(email,pass)
@@ -38,12 +40,13 @@ const Signup = () => {
             displayName: name , photoURL: photoUrl
           }).then(()=>{
                setUser(userCredential.user)
+               toast.success("Signup Successful!");
           }).catch((error)=>{
-               console.log(error);
+               toast.error(error.message);
           }); 
          })
          .catch(err=>{
-          console.log(err);
+          toast.error(err.message);
          })
     }
     console.log(user);
@@ -53,8 +56,9 @@ const Signup = () => {
         .then(result=>{
           const user = result.user
           setUser(user)
+          toast.success("Google Signup Successful!");
         })
-        .catch(err=> console.log(err))
+        .catch(err=> toast.error(err.message))
       }
   return (
    <div className="min-h-screen flex items-center justify-center ">

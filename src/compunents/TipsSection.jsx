@@ -59,4 +59,4 @@ const TipsSection = () => {
   )
 }
 
-export default TipsSection
+export default TipsSection;

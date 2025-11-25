@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { IoStarSharp } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 const ServiceDetails = () => {
 
@@ -21,7 +22,7 @@ const ServiceDetails = () => {
 
    const handleBooking=(e)=>{
     e.preventDefault() 
-    alert("Service Booked Successfully!")
+    toast.success("Service Booked Successfully!");
     e.target.reset()
   }
 

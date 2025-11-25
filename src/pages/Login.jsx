@@ -27,11 +27,12 @@ const Login = () => {
        .then((userCredential)=>{
         const user = userCredential.user;
         console.log(user);
-        navigate(location.state)
+        toast.success("Log in Successfully!");
+        navigate(location.state? location.state:'/')
 
        })
        .catch((error)=>{
-        console.log(error);
+        toast.error(error.message)
         
        });
         
@@ -41,11 +42,13 @@ const Login = () => {
         .then(result=>{
           const user = result.user
           setUser(user)
+          toast.success("Google Login Successful!");
           navigate(location.state? location.state:'/')
 
 
         })
-        .catch(err=> console.log(err))
+        .catch(err=> toast.error(err.message)
+)
       }
 
       const handleForget =()=>{
