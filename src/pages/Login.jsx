@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import {IoEyeOff} from "react-icons/io5";
 import MyContainer from '../compunents/MyContainer'
 import googleimg from '../assets/images.png'
-import {Link} from 'react-router'
+import {Link, useLocation, useNavigate} from 'react-router'
 import { toast } from 'react-toastify';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
@@ -12,6 +12,10 @@ import { AuthContext } from '../Provider/AuthProvider';
 const Login = () => {
    
      const {setUser,handleGoogleSignin} = useContext(AuthContext)
+     const location =useLocation();
+     const navigate = useNavigate();
+     const [email, setEmail] = useState('')
+     console.log(location);
      
     
      
@@ -22,7 +26,8 @@ const Login = () => {
        signInWithEmailAndPassword(auth, email, pass)
        .then((userCredential)=>{
         const user = userCredential.user;
-        setUser(user)
+        console.log(user);
+        navigate(location.state)
 
        })
        .catch((error)=>{
@@ -36,9 +41,17 @@ const Login = () => {
         .then(result=>{
           const user = result.user
           setUser(user)
+          navigate(location.state? location.state:'/')
+
+
         })
         .catch(err=> console.log(err))
       }
+
+      const handleForget =()=>{
+         navigate(`/forget/${email}`)
+      }
+
 
       
   return (
@@ -57,7 +70,7 @@ const Login = () => {
               <input 
               name='email'
               // value={email}
-              // onChange={(e) => setEmail(e.target.value)}
+              onChange={(e)=> setEmail(e.target.value)}
                className='border-white border rounded-[8px] p-2 w-full'  type="email" placeholder='Enter Your Email' />
              </div>
              <div className='relative'>
@@ -69,7 +82,7 @@ const Login = () => {
                 </span>
               </div>
                <div className='text-center cursor-pointer'>
-              <button 
+              <button onClick={handleForget}
               type='button'
               className='text-sm cursor-pointer hover:underline hover:text-yellow-400'>Forget Password?
               </button>

@@ -18,6 +18,19 @@ const Signup = () => {
          const pass = e.target.password.value;
          const name = e.target.name.value;
          const photoUrl = e.target.photoUrl.value;
+         
+         const uppercase = /[A-Z]/;
+         const lowercase = /[a-z]/;
+        if(pass.length < 6 ){
+          return alert('less then 6 character')
+        }
+        if(!uppercase.test(pass)){
+          return alert("need a Uppercase")
+        }
+        if(!lowercase.test(pass)){
+          return alert("need a lowercase")
+        }
+
          signupWithEmailAndPassword(email,pass)
          .then((userCredential) =>{
           
