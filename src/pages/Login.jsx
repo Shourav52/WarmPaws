@@ -11,7 +11,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
    
-     const {setUser,user} = useContext(AuthContext)
+     const {setUser,handleGoogleSignin} = useContext(AuthContext)
      
     
      
@@ -29,43 +29,18 @@ const Login = () => {
         console.log(error);
         
        });
-  //      const handleGoogleSignin =()=>{
         
-  //       signInWithPopup(auth, googleProvider)
-  //        .then((res)=>{
-  //         setuser(res.user);
-  //         toast.success('Google Signin succesfull')
-  //        })
-  //        .catch((e)=>{
-  //         toast.error(e.message);
-  //        })
-  //      };
-  //     const handleSignout = (e)=> {
-  //        signOut(auth)
-  //        .then(()=>{
-  //         toast.success('Signout succesfull')
-  //         setuser(null);
-  //        })
-  //        .catch((e)=>{
-  //         toast.error(e.message);
-  //        })
-  //     };
-
-  //     const handleForgetPassword = (e) =>{
-  //       console.log();
-  //       const email = emailRef.current.value;
-  //       sendPasswordResetEmail(auth, email)
-  // .then(() => {
-  //   toast.success("Reset mail sent!");
-  // })
-  // .catch((e) => {
-  //   console.log("RESET ERROR:", e);
-  //   toast.error(e.message);
-  // });
-
       };
+      const googleSignin =()=>{
+        handleGoogleSignin()
+        .then(result=>{
+          const user = result.user
+          setUser(user)
+        })
+        .catch(err=> console.log(err))
+      }
 
-      console.log(user);
+      
   return (
     <div className="min-h-screen flex items-center justify-center ">
         <MyContainer className={"flex justify-center items-center gap-20"}>
@@ -96,11 +71,11 @@ const Login = () => {
                <div className='text-center cursor-pointer'>
               <button 
               type='button'
-              className='text-sm cursor-pointer hover:underline'>Forget Password?
+              className='text-sm cursor-pointer hover:underline hover:text-yellow-400'>Forget Password?
               </button>
              </div>
 
-            <button className='text-white btn bg-gradient-to-r font-extrabold from-blue-500 to-purple-500  mt-3 '>
+            <button className='text-white btn bg-gradient-to-r  from-purple-500 to-purple-800 font-extrabold   mt-3 '>
               Login
             </button>
            <div className='flex justify-center place-items-center gap-2 my-4'>
@@ -108,13 +83,14 @@ const Login = () => {
               <span className='text-sm text-gray-300'>or</span>
               <div className='h-px w-16 bg-gray-400'></div>
            </div>
-           <button type='submit'
+           <button onClick={googleSignin}
+            type='submit'
              className='flex  bg-white text-black justify-center btn'>
               <img className='w-5' src={googleimg} alt="" />
               Continue With Google
             </button>
             <p className='text-sm  mt-3 text-center'>
-              Don't have an account? <Link className='text-red-400' to={"/signup"} >Signup</Link>
+              Don't have an account? <Link className='text-yellow-400 hover:underline' to={"/signup"} >Register</Link>
             </p>
 
             </form>
