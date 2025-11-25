@@ -16,11 +16,13 @@ const Services = () => {
 
   return (
     <div>
+      <h1 className='text-3xl font-semibold mt-5 text-center bg-gradient-to-b from-purple-300 to-white bg-clip-text text-transparent '>All services</h1>
        <MyContainer>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10 p-10 lg:p-0 mb-10'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 gap-10 p-10 lg:p-0 mb-10'>
           {
             services.map(services =>
-              <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="card bg-base-100 shadow-sm w-full lg:w-[360px] bg-blue-300">
+              <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="card bg-base-100 shadow-sm w-full lg:w-[360px] bg-gray-100">
+                
             <figure>
                 <img className='w-full h-[300px] object-cover'
                 src={services?.image}
@@ -28,7 +30,7 @@ const Services = () => {
             </figure>
             <div className="card-body space-y-2">
                 <h2 className="card-title">{services?.serviceName}</h2>
-                <div className='flex justify-between'>
+                <div className='flex justify-between text-gray-600'>
                     <p>Price: {services?.price}</p>
                     <p>Ratting: {services?.rating}</p>
                 </div>

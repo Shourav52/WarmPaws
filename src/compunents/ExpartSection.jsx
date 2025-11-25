@@ -8,7 +8,7 @@ const ExpartSection = () => {
   return (
     <div className='mb-10 mt-10'>
       <div className='text-center text-3xl font-semibold text-white mb-10'>
-        <h1>Meet Our Expert Vets</h1>
+        <h1 className='bg-gradient-to-b from-purple-300 to-white bg-clip-text text-transparent'>Meet Our Expert Vets</h1>
       </div>
       <MyContainer className={'grid grid-cols-1 lg:grid-cols-3  w-full space-y-5 p-6 lg:p-0 gap-5'}>
           <div className="card card-side bg-base-100 shadow-sm w-full lg:w-100 h-50">

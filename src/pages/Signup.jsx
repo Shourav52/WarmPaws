@@ -8,12 +8,16 @@ import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import googleimg from '../assets/images.png'
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
+
 
 
 
 const Signup = () => {
 
   const {signupWithEmailAndPassword, setUser, user,handleGoogleSignin}= useContext(AuthContext);
+  const navigate = useNavigate();
+
     const handleSubmit = (e)=>{
          e.preventDefault()
          const email = e.target.email.value;
@@ -41,6 +45,7 @@ const Signup = () => {
           }).then(()=>{
                setUser(userCredential.user)
                toast.success("Signup Successful!");
+               navigate("/");
           }).catch((error)=>{
                toast.error(error.message);
           }); 

@@ -15,13 +15,13 @@ const PopularSection = () => {
   return (
     <div className='mt-4'>
         <div className='mb-4'>
-            <h3 className='font-bold text-3xl text-center text-white'>Popular Winter Care Services</h3>
+            <h3 className='font-bold text-3xl text-center bg-gradient-to-b from-purple-300 to-white bg-clip-text text-transparent'>Popular Winter Care Services</h3>
         </div>
        <MyContainer>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10 p-10 lg:p-0'>
           {
             services.slice(0,6).map(services =>
-              <div className="card bg-base-100 shadow-sm w-full lg:w-[360px] bg-blue-300">
+              <div className="card bg-base-100 shadow-sm w-full lg:w-[360px] bg-gray-100">
             <figure>
                 <img className='w-full h-[300px] object-cover'
                 src={services?.image}
@@ -29,8 +29,8 @@ const PopularSection = () => {
             </figure>
             <div className="card-body space-y-2">
                 <h2 className="card-title">{services?.serviceName}</h2>
-                <div className='flex justify-between'>
-                    <p>Price: {services?.price}</p>
+                <div className='flex justify-between text-gray-600'>
+                    <p >Price: {services?.price}</p>
                     <p>Ratting: {services?.rating}</p>
                 </div>
                 
