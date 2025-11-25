@@ -3,7 +3,8 @@ import React from 'react'
 const Footer = () => {
   return (
     
-      <footer className="footer mt-48 sm:footer-horizontal bg-base-300 text-base-content  p-10">
+<div>
+  <footer className="footer mt-48 sm:footer-horizontal bg-base-300 text-base-content  p-10">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>
@@ -57,6 +58,12 @@ const Footer = () => {
     </div>
   </nav>
 </footer>
+<footer className="border border-gray-400 footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+  <aside>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by WarmPaws – Pet Care in Winter </p>
+  </aside>
+</footer>
+</div>
     
   )
 }
