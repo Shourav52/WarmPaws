@@ -10,6 +10,8 @@ import auth from '../firebase/firebase.config';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
+
+   const [show, setshow] = useState(false);
    
      const {setUser,handleGoogleSignin} = useContext(AuthContext)
      const location =useLocation();
@@ -72,16 +74,15 @@ const Login = () => {
                <label htmlFor="">Email</label>
               <input 
               name='email'
-              // value={email}
               onChange={(e)=> setEmail(e.target.value)}
                className='border-white border rounded-[8px] p-2 w-full'  type="email" placeholder='Enter Your Email' />
              </div>
              <div className='relative'>
                 <label htmlFor="">Password</label>
-                <input name='password' className='border-white border  rounded-[8px] p-2 w-full'  type= "password" placeholder='Enter Password' />
-                <span
+                <input name='password' className='border-white border  rounded-[8px] p-2 w-full'  type={show ? "text": "password"} placeholder='Enter Password' />
+                <span onClick={()=> setshow(!show)}
                 className='absolute right-[8px] top-[36px] cursor-pointer z-50'>
-
+                  {show? <FaEye /> : <IoEyeOff /> }
                 </span>
               </div>
                <div className='text-center cursor-pointer'>

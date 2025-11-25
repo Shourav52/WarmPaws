@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import {IoEyeOff} from "react-icons/io5";
 import MyContainer from '../compunents/MyContainer'
@@ -14,6 +14,7 @@ import { useNavigate } from "react-router";
 
 
 const Signup = () => {
+  const [show, setshow] = useState(false);
 
   const {signupWithEmailAndPassword, setUser, user,handleGoogleSignin}= useContext(AuthContext);
   const navigate = useNavigate();
@@ -90,11 +91,11 @@ const Signup = () => {
              </div>
              <div className='relative'>
                <label htmlFor="">Password</label>
-               <input name='password' type='password' className='border-white border  rounded-[8px] p-2 w-full' 
+               <input name='password' type={show ? "text": "password"} className='border-white border  rounded-[8px] p-2 w-full' 
                 placeholder='Enter Password' />
-               <span 
+               <span onClick={()=> setshow(!show)}
                 className='absolute right-[8px] top-[36px] cursor-pointer z-50'>
-                {/* {show ? <FaEye /> : <IoEyeOff />} */}
+                {show? <FaEye /> : <IoEyeOff /> }
                 </span>
              </div>
                <button className='text-white  btn bg-gradient-to-r  from-purple-500 to-purple-800  mt-5 '>
